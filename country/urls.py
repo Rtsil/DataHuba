@@ -3,5 +3,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('', views.country, name='country'),
+    path('', views.index, name='index'),
+    path('search/', views.search_result, name='search')
 ]

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+ <div class="container mt-5" style="min-height: 100vh;">
+        <div class="text-center">
+            <h1 class="display-3">{{ data.name.common }}</h1>
+            <p>{{ data.name.official }}{{ data.flag }}</p>
+        </div>
+         <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <p>This is some content below the title.</p>
+                <p>You can add more paragraphs or other elements here.</p>
+            </div>
+        </div>
+
+</div>
+<h1></h1>
+<h2>{{ data.name.official }}</h2>
+
+
+
+{% endblock %}
