@@ -3,6 +3,7 @@ from django.db import models
 
 class Country(models.Model):
     name = models.CharField(max_length=100)
+    name_official = models.CharField(max_length=100)
     tld = models.CharField(max_length=4)  # .mg
     independent = models.BooleanField()  # is independent
     UN_member = models.BooleanField()  # UN member?
@@ -19,3 +20,6 @@ class Country(models.Model):
     flag_img_url = models.CharField(max_length=100)
     flag_img_alt = models.TextField()
     coatofarms_img_url = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
