@@ -3,39 +3,13 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
- <div class="container mt-5" style="min-height: 100vh;">
-        <div class="text-center">
-            <h1 class="display-3">{{ data.name }}</h1>
-            <p>{{ data.name_official }}{{ data.flag_emoji }}</p>
-        </div>
-         <div class="row mt-4">
-        <div class="col-md-6">
-            <p>Name: {{ data.name }} {{ data.flag_emoji }}</p>
-            <p>Name official: {{ data.name_official }}</p>
-            <p>Population Name: {{ data.pop_name }}</p>
-            <p>Languages: {{ data.languages }}</p>
-            <p>Independence: {% if data.independent %}Yes{% else %}No{% endif %}</p>
-            <p>UN member: {% if data.UN_member %}Yes{% else %}No{% endif %}</p>
-            <p>Populations: {{ data.populations }}</p>
-            <p>Timezone: {{ data.timezones }}</p>
-            <p>Continents: {{ data.continents }}</p>
-            <p>Car side: {{ data.car_side }}</p>
-        </div>
-        <div class="col-md-6">
-            <!-- Add your image here -->
-            <img src="{{ data.flag_img_url }}" alt="Image Description" style="max-width: 100%; height: auto;" class="border-image">
-        </div>
+  <div class="container mt-4">
+    <h3>Country Found:</h3>
+    <div class="d-grid gap-2 mt-3">
+      {% for result in data %}
+        <a href="{% url 'country' country_name=result %}" class="btn btn-outline-dark">{{ result }}</a>
+      {% endfor %}
     </div>
-
-</div>
-<h1></h1>
-<h2>{{ data.name.official }}</h2>
-<style>
-    /* CSS style for the image with the black border */
-    .border-image {
-        border: 2px solid black;
-    }
-</style>
-
-
+  </div>
 {% endblock %}
+

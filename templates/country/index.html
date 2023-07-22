@@ -5,4 +5,18 @@
 {% block content %}
 
 
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center">
+        <form class="form-outline">
+            <input type="search" class="form-control form-control-dark form-control-lg" placeholder="Search..." aria-label="Search">
+            <button type="submit" class="btn btn-outline-dark btn-lg btn">Search</button>
+        </form>
+    </div>
+    <h3>All Countries:</h3>
+    <div class="d-grid gap-2 mt-3">
+      {% for country in data %}
+        <a href="{% url 'country' country_name=country %}" class="btn btn-outline-dark">{{ country }}</a>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
