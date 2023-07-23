@@ -15,7 +15,7 @@
             <p>Name: {{ data.name }} {{ data.flag_emoji }}</p>
             <p>Name official: {{ data.name_official }}</p>
             <p>Population Name: {{ data.pop_name }}</p>
-            <p>Languages: {{ data.languages }}</p>
+            <p>Languages: {% for data in data.languages.values%} {{data}}, {%endfor%}</p>
             <p>Independence: {% if data.independent %}Yes{% else %}No{% endif %}</p>
             <p>UN member: {% if data.UN_member %}Yes{% else %}No{% endif %}</p>
 

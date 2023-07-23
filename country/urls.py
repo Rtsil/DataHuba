@@ -3,7 +3,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index, name='country_home'),
     path('search/', views.search_result, name='search'),
     path('<str:country_name>', views.country, name='country')
 ]

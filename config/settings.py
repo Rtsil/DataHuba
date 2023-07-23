@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'country',
     'bootstrap5',
+    'food',
 ]
 
 MIDDLEWARE = [

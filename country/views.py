@@ -20,6 +20,6 @@ def search_result(request):
 
 
 def country(request, country_name):
-    q = Country.objects.get(name__icontains=country_name)
+    q = Country.objects.get(name=country_name)
     return render(request, 'country/country.html', {'data': q})
 

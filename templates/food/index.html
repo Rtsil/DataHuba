@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Food {% endblock %}
 
 {% block content %}
-
-
   <div class="container mt-4">
     <div class="d-flex justify-content-center">
         <form class="form-outline" action="{% url 'search'%}">
@@ -12,11 +10,12 @@
             <button type="submit"  class="btn btn-outline-dark btn-lg btn">Search</button>
         </form>
     </div>
-    <h3>All Countries:</h3>
+    <h3>All Categories:</h3>
     <div class="d-grid gap-2 mt-3">
-      {% for country in data %}
-        <a href="{% url 'country' country_name=country %}" class="btn btn-outline-dark">{{ country }}</a>
+      {% for cat in data%}
+        <a href="{% url 'category' cat_name=cat %}" class="btn btn-outline-dark">{{ cat }}</a>
       {% endfor %}
     </div>
   </div>
+
 {% endblock %}
