@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Food {% endblock %}
+
+{% block content %}
+
+
+
+ <div class="container mt-5" style="min-height: 100vh;">
+        <div class="text-center">
+            <h1 class="display-3">{{ data.name }}</h1>
+        </div>
+         <div class="row mt-4">
+        <div class="col-md-6">
+            <!-- Add your image here -->
+            <img src="{{ data.image }}" alt="Image Description" style="max-width: 100%; height: auto;" class="border-image">
+        </div>
+    </div>
+
+</div>
+<h1></h1>
+<h2>{{ data.name.official }}</h2>
+<style>
+    /* CSS style for the image with the black border */
+    .border-image {
+        border: 2px solid black;
+    }
+</style>
+
+{% endblock %}

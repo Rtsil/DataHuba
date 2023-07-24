@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Food {% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center">
+        <form class="form-outline" action="{% url 'search'%}">
+            <input type="search" name='q' class="form-control form-control-dark form-control-lg" placeholder="Search..." aria-label="Search">
+            <button type="submit"  class="btn btn-outline-dark btn-lg btn">Search</button>
+        </form>
+    </div>
+    <h3>All Categories:</h3>
+    <div class="d-grid gap-2 mt-3">
+      {% for cat in data%}
+        <a href="{% url 'meal' meal_name=cat %}" class="btn btn-outline-dark">{{ cat }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

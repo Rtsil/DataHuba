@@ -11,7 +11,7 @@ import requests
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "country_data.config.settings")
 # django.setup()
 #
-# from food.models import FoodRecipe, FoodCategory
+from food.models import FoodRecipe, FoodCategory, Meal
 def get_food_cat():
     url_category = 'https://www.themealdb.com/api/json/v1/1/categories.php'
     response = requests.get(url_category).json()['categories']
@@ -21,6 +21,18 @@ def get_food_cat():
                                description=cat['strCategoryDescription'])
         new_cat.save()
 
+import requests
+from food.models import FoodRecipe, FoodCategory, Meal
+def get_recipes_from_cat():
+
+    url_category = 'https://www.themealdb.com/api/json/v1/1/categories.php'
+    response = requests.get(url_category).json()['categories']
+    for cat in response:
+        url_list_meal = f"https://www.themealdb.com/api/json/v1/1/filter.php?c={cat['strCategory']}"
+        response = requests.get(url_list_meal).json()['meals']
+        for meal in response:
+            new_meal = Meal(name=meal['strMeal'], image=meal['strMealThumb'])
+            new_meal.save()
 
 def main():
     get_food_cat()
