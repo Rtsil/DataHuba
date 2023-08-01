@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from libgen_api import LibgenSearch
 
 
@@ -22,8 +22,6 @@ def selected_book(request, book_index):
     item = data[book_index]
     download_links = s.resolve_download_links(item)
     keys = list(download_links.keys())
-    print(keys)
     item["download_link"] = download_links[keys[0]]
 
-
-    return render(request, 'book/book.html', {'data': item})
+    return redirect(item["download_link"])

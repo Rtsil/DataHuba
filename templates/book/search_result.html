@@ -3,17 +3,24 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
+
   <div class="container mt-4">
+    <form action="{% url 'search_book' %}" method="GET">
+            <div class="input-group mb-3">
+                <input type="text"  name='q' class="form-control form-control-lg" placeholder="Search for books..." aria-label="Search" aria-describedby="search-button">
+                <button class="btn btn-outline-dark btn-lg" type="submit" id="search-button">Search</button>
+            </div>
+      </form>
     <h3>Books Found:</h3>
     <div class="d-grid gap-2 mt-3">
       {% for result in data %}
-      <a href="{% url 'book' book_index=forloop.counter0 %}">{{ result.Title }} -- {{ result.Author }}
+      <div class="row">
+      <div class="col-md-8">{{ result.Title }} <br> Author: {{ result.Author }} <br> Language: {{ result.Language }}</div>
+      <div class="col-6 col-md-4"> <a href="{% url 'book' book_index=forloop.counter0 %}"> Download </a> <br>  {{ result.Extension }} - {{ result.Size }} - {{ result.Pages }} pages </div>
+    </div>
       <br>
-           Extension: {{ result.Extension }}, Language: {{ result.Language }}
-      </a>
+      <br>
 
-      <br>
-      <br>
       {% endfor %}
     </div>
   </div>
