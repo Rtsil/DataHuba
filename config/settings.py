@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'country',
     'bootstrap5',
     'food',
+    'book'
 ]
 
 MIDDLEWARE = [

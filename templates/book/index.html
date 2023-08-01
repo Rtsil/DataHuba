@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+     <div class="search-container">
+         <form action="{% url 'search_book' %}" method="GET">
+          <div class="input-group mb-3">
+            <input type="text"  name='q' class="form-control form-control-lg" placeholder="Search for books..." aria-label="Search" aria-describedby="search-button">
+            <button class="btn btn-outline-dark btn-lg" type="submit" id="search-button">Search</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

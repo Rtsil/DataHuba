@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('country/', include('country.urls')),
     path('', views.home),
-    path('food/', include('food.urls'))
+    path('food/', include('food.urls')),
+    path('book/', include('book.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

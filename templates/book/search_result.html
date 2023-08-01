@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h3>Books Found:</h3>
+    <div class="d-grid gap-2 mt-3">
+      {% for result in data %}
+      <a href="{% url 'book' book_index=forloop.counter0 %}">{{ result.Title }} -- {{ result.Author }}
+      <br>
+           Extension: {{ result.Extension }}, Language: {{ result.Language }}
+      </a>
+
+      <br>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
