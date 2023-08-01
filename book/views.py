@@ -9,9 +9,13 @@ def index(request):
 
 def search_result(request):
     search_query = request.GET.get('q', '')
+    search_type = request.GET.get('search_type', 'title')
     s = LibgenSearch()
     title_filters = {}
-    data = s.search_title_filtered(search_query, title_filters, exact_match=True)
+    if search_type == 'title':
+        data = s.search_title_filtered(search_query, title_filters, exact_match=True)
+    else:
+        data = s.search_author_filtered(search_query, title_filters, exact_match=True)
     request.session['data'] = data
     return render(request, 'book/search_result.html', {'data': data})
 
